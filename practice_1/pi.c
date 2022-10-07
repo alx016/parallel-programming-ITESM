@@ -4,6 +4,7 @@ dentro de la circunferencia entre el número de puntos total.
 Referencias:
 https://github.com/VictorRodriguez/parallel-programming-lecture/blob/main/labs/04/mutex-thread.c
 https://github.com/VictorRodriguez/parallel-programming-lecture/blob/main/labs/04/findCircle.c
+https://stackoverflow.com/questions/31089952/using-rand-rand-max-1
 */
 #include <pthread.h>
 #include <stdio.h>
