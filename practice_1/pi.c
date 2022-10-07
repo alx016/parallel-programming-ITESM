@@ -1,8 +1,7 @@
-/*
-Con este código se puede calcular el valor de pi a través del número de 'puntos' que están
+/*Con este código se puede calcular el valor de pi a través del número de 'puntos' que están
 dentro de la circunferencia entre el número de puntos total. 
-*/
-/* Referencias:
+
+Referencias:
 https://github.com/VictorRodriguez/parallel-programming-lecture/blob/main/labs/04/mutex-thread.c
 https://github.com/VictorRodriguez/parallel-programming-lecture/blob/main/labs/04/findCircle.c
 */
@@ -54,8 +53,8 @@ void *Count(void * a){
 int main (int argc, char *argv[]){
     clock_t start, end;
     double cpuTime;
-    srand(time(NULL));
-    start = clock();
+    srand(time(NULL));//useful to have different random numbers
+    start = clock();//initialize clock
     if (pthread_mutex_init(&lock, NULL) !=0){
         printf("\n mutex init failed\n");
         return 1;
@@ -65,16 +64,16 @@ int main (int argc, char *argv[]){
     pointsThread= npoints/NUM_THREADS;
 
     for(int i=0; i<NUM_THREADS; i++){
-        pthread_create(&threads[i], NULL, Count, NULL);
+        pthread_create(&threads[i], NULL, Count, NULL);//creates the threads
     }
 
     for(int i=0; i<NUM_THREADS; i++){
-        pthread_join(threads[i], NULL);
+        pthread_join(threads[i], NULL);//joins the values of the threads
     }
 
-    double pi = 4.0*(double)circleCount/(double)npoints;
+    double pi = 4.0*(double)circleCount/(double)npoints;//calculates pi
     end = clock();
-    cpuTime = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("pi = %f\nTime used=%f",pi, cpuTime);
+    cpuTime = ((double) (end - start)) / CLOCKS_PER_SEC; //calculates the time
+    printf("pi = %f\nTime used=%f\n",pi, cpuTime);//prints pi and the time it took 
     pthread_mutex_destroy(&lock);
 }
