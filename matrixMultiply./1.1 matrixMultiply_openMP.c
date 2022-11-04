@@ -1,3 +1,5 @@
+//This code solves a define matrix Multiplication with openMP
+
 #include <stdio.h>
 #define m 2
 #define n 3
