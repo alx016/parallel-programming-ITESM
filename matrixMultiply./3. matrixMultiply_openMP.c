@@ -18,18 +18,18 @@ int main(int argc, char** argv){
     int i, j, k, n;
     int thread_num= 1;
 
+    n = N;
+
     if (argc > 1){
-        thread_num = atoi(argv[1]);
-        n = atoi(argv[2]);//checks for a second input, which is the size of the matrix
+        thread_num = atoi(argv[1]);//checks the first argument
+        if (argv[2]> 0){
+            n = atoi(argv[2]);//checks for a second argument, which is the size of the matrix
+            A[n][n];
+            B[n][n];
+            C[n][n];
+        }
     }
-    else{
-        n=N;
-    }
-
-    A[n][n];
-    B[n][n];
-    C[n][n];
-
+   
     omp_set_num_threads(thread_num);//takes the amount of threads the user wants to use
 
     //Creating two vectors full of 2's and 3's
@@ -50,6 +50,7 @@ int main(int argc, char** argv){
         }
     }
 
+    //Print Matrix
     for (i=0; i<n;i++){
         for (j=0;j<n;j++){
             printf("%d  ",C[i][j]);
