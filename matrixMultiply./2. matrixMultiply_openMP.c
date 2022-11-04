@@ -1,4 +1,5 @@
 //This code solves a matrix multiplication using openMP, the twist in here is that the user can define the amount of threads to use
+//and therefore, reduce the amount of time used to solve it.  
 
 #include <stdio.h>
 #include <stdlib.h>
